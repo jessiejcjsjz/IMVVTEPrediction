@@ -1,0 +1,189 @@
+library(data.table)
+f1 <- dir()[2]
+f1 <- fread(f1,nrows=100)
+f2 <- read.csv(dir()[2],nrows=10)
+
+f2 <- read.csv(dir()[2],nrows=1000)
+test<-apply(f2,2,function(x){length(unique(x))})
+cbind(test)
+
+
+                      test
+CI_ID                  868 #Not Unique
+Claim_No               991 #Should be unique, should have 1000 rows
+EACL_NO                 58 
+Performing_Prov_NPI    253
+EAC_ADMM_DT              1
+EAC_DCG_DT               1
+ICRD_DT                440
+EACNSPS_CD               1
+EACM_BIR_DT            954
+MBR_EAG_CD               2
+EACT_CD                  1
+CMN_EACDRG_CD            1
+CMN_EACDRG_VSN_NO        1
+EACAS_CD                 4
+EACDS_CD                 8
+EACPV_DRG_CD             1
+EACPV_DRG_WT             1
+EACPV_GPR_VSN_ID         1
+CUR_CMN_EACDRG_CD        1
+CUR_CMN_EACDRG_VSN_NO    2
+ADM_DIAG_CD            133
+PRI_DIAG_CD            344
+DIAG_CD_001            383
+DIAG_CD_002            328
+DIAG_CD_003            289
+DIAG_CD_004            267
+DIAG_CD_005            229
+DIAG_CD_006            220
+DIAG_CD_007            182
+DIAG_CD_008            162
+DIAG_CD_009            132
+DIAG_CD_010            114
+DIAG_CD_011             95
+DIAG_CD_012             90
+DIAG_CD_013             74
+DIAG_CD_014             56
+DIAG_CD_015             49
+DIAG_CD_016             36
+DIAG_CD_017             27
+DIAG_CD_018             21
+DIAG_CD_019             15
+DIAG_CD_020             13
+DIAG_CD_021             13
+DIAG_CD_022              8
+DIAG_CD_023              7
+DIAG_CD_024              6
+DIAG_CD_025              1
+DIAG_CD_026              1
+EACP_PRN_CLM_CD          2
+EACP_OTH_CLM_CD_001      1
+EACP_OTH_CLM_CD_002      1
+EACP_OTH_CLM_CD_003      1
+EACP_OTH_CLM_CD_004      1
+EACP_OTH_CLM_CD_005      1
+EACP_OTH_CLM_CD_006      1
+EACP_OTH_CLM_CD_007      1
+EACP_OTH_CLM_CD_008      1
+EACP_OTH_CLM_CD_009      1
+EACP_OTH_CLM_CD_010      1
+EACP_OTH_CLM_CD_011      1
+EACP_OTH_CLM_CD_012      1
+EACP_OTH_CLM_CD_013      1
+EACP_OTH_CLM_CD_014      1
+EACP_OTH_CLM_CD_015      1
+EACP_OTH_CLM_CD_016      1
+EACP_OTH_CLM_CD_017      1
+EACP_OTH_CLM_CD_018      1
+EACP_OTH_CLM_CD_019      1
+EACP_OTH_CLM_CD_020      1
+EACP_OTH_CLM_CD_021      1
+EACP_OTH_CLM_CD_022      1
+EACP_OTH_CLM_CD_023      1
+EACP_OTH_CLM_CD_024      1
+EA_NATL_HCPCS_CD        50
+BETOS_CD                24
+EAC_FNLN_DT             49
+
+
+table(f2$Claim_No, f2$Performing_Prov_NPI)
+
+
+
+> dim(f2)
+[1] 13770376       76
+> dim(f2)
+[1] 13770376       76
+> test<-apply(f2,2,function(x){length(unique(x))})
+> cbind(test)
+                         test
+CI_ID                 1595648
+Claim_No              5430491
+EACL_NO                   416
+Performing_Prov_NPI    373505
+EAC_ADMM_DT               905
+EAC_DCG_DT                877
+ICRD_DT                  1689
+EACNSPS_CD                 46
+EACM_BIR_DT             36955
+MBR_EAG_CD                  3
+EACT_CD                     4
+CMN_EACDRG_CD             731
+CMN_EACDRG_VSN_NO           7
+EACAS_CD                   13
+EACDS_CD                   25
+EACPV_DRG_CD              701
+EACPV_DRG_WT             1101
+EACPV_GPR_VSN_ID           17
+CUR_CMN_EACDRG_CD         729
+CUR_CMN_EACDRG_VSN_NO       2
+???ADM_DIAG_CD              4785
+???PRI_DIAG_CD             10422
+DIAG_CD_001             10117
+DIAG_CD_002              9063
+DIAG_CD_003              7898
+DIAG_CD_004              4489
+DIAG_CD_005              3884
+DIAG_CD_006              3393
+DIAG_CD_007              2970
+DIAG_CD_008              2655
+DIAG_CD_009              2233
+DIAG_CD_010              2038
+DIAG_CD_011              1830
+DIAG_CD_012              1640
+DIAG_CD_013              1418
+DIAG_CD_014              1246
+DIAG_CD_015              1149
+DIAG_CD_016              1016
+DIAG_CD_017               961
+DIAG_CD_018               791
+DIAG_CD_019               720
+DIAG_CD_020               644
+DIAG_CD_021               596
+DIAG_CD_022               541
+DIAG_CD_023               474
+DIAG_CD_024               370
+DIAG_CD_025                 1
+DIAG_CD_026                 1
+???EACP_PRN_CLM_CD          1643
+EACP_OTH_CLM_CD_001      1380
+EACP_OTH_CLM_CD_002      1019
+EACP_OTH_CLM_CD_003       783
+EACP_OTH_CLM_CD_004       590
+EACP_OTH_CLM_CD_005       455
+EACP_OTH_CLM_CD_006       314
+EACP_OTH_CLM_CD_007       244
+EACP_OTH_CLM_CD_008       206
+EACP_OTH_CLM_CD_009       175
+EACP_OTH_CLM_CD_010       145
+EACP_OTH_CLM_CD_011       106
+EACP_OTH_CLM_CD_012        98
+EACP_OTH_CLM_CD_013        80
+EACP_OTH_CLM_CD_014        67
+EACP_OTH_CLM_CD_015        56
+EACP_OTH_CLM_CD_016        46
+EACP_OTH_CLM_CD_017        36
+EACP_OTH_CLM_CD_018        36
+EACP_OTH_CLM_CD_019        28
+EACP_OTH_CLM_CD_020        27
+EACP_OTH_CLM_CD_021        19
+EACP_OTH_CLM_CD_022        17
+EACP_OTH_CLM_CD_023        14
+EACP_OTH_CLM_CD_024        11
+EA_NATL_HCPCS_CD        10438
+BETOS_CD                  105
+EAC_FNLN_DT               122
+
+
+> f2.ona<-f2[complete.cases(f2),]
+> dim(f2.ona)
+[1]  0 76
+
+# WHAT'S THE DIFFERENT BETWEEN THESE DIAG CODE
+> head(f2$PRI_DIAG_CD)
+[1] 78659 1623  V5332 78651 4510  46619
+10422 Levels:  001 0010 0019 0029 0030 0031 00321 00323 00324 00329 0039 ... V9103
+> head(f2$ADM_DIAG_CD)
+[1] 78650                              
+4785 Levels:  001 0030 0059 0074 00845 0085 00861 00869 0088 0090 0091 ... V9103
